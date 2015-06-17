@@ -9,3 +9,6 @@ https://wireframe.cc/UDbbQ0
 
 ### &nbsp;&nbsp;&nbsp;&nbsp;Products
 https://wireframe.cc/Dhoycv
+
+### &nbsp;&nbsp;&nbsp;&nbsp;Product Details
+https://wireframe.cc/SH3wbb
