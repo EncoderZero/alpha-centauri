@@ -15,7 +15,8 @@ namespace binbash.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Title = "About Us";
+            ViewBag.Message = "Supppliers of all Your Nerdy Needs.";
 
             return View();
         }
