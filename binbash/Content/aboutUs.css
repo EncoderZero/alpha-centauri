@@ -1,0 +1,10 @@
+﻿.imgDisplay {
+    max-width: 500px;
+    height:auto;
+    margin: 0 auto 5px;
+    display: block;
+    width:100%;
+}
+.display-block {
+    display:block;
+}
