@@ -1,0 +1,5 @@
+﻿<?xml version="1.0"?>
+<connectionStrings>
+  <add name="DefaultConnection" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Stephen\dev\Alpha-Centauri\binbash\App_Data\TestDatabase.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+  <add name="StoreModelsContainer" connectionString="metadata=res://*/Models.StoreModels.csdl|res://*/Models.StoreModels.ssdl|res://*/Models.StoreModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Stephen\dev\Alpha-Centauri\binbash\App_Data\TestDatabase.mdf;Integrated Security=True&quot;" providerName="System.Data.EntityClient" />
+</connectionStrings>
