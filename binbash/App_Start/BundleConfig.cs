@@ -26,8 +26,8 @@ namespace binbash
                       "~/bower_components/bootstrap-material-design/dist/js/ripples.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
+                      "~/Content/Styles/bootstrap.css",
+                      "~/Content/Styles/site.css",
                       "~/bower_components/bootstrap-material-design/dist/css/material.css",
                       "~/bower_components/bootstrap-material-design/dist/css/ripples.css"));
 

@@ -17,7 +17,7 @@ namespace binbash.Controllers
         {
             ViewBag.Title = "About Us";
             ViewBag.Message = "Supppliers of all Your Nerdy Needs.";
-
+            ViewBag.OutClass = "null-container";
             return View();
         }
 
