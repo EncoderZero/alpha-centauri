@@ -23,7 +23,8 @@ namespace binbash.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Want to talk?";
+            ViewBag.Title = "Contact Us";
 
             return View();
         }

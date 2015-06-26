@@ -334,6 +334,7 @@
     <Content Include="Content\Images\bacon.jpg" />
     <Content Include="Content\Images\desktop-wallpapers-background-linux-ubuntu-252850.jpg" />
     <Content Include="Content\Images\ninja_sketch.jpg" />
+    <Content Include="Content\Styles\contact.css" />
     <Content Include="Content\Styles\Landing.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
