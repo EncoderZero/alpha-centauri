@@ -15,7 +15,8 @@ namespace binbash.Controllers {
         // GET: Products
         public ActionResult Index() {
             var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var categories = db.Categories.Include(p => p.Products);
+            return View(categories.ToList());
         }
 
         // GET: Products/Details/5

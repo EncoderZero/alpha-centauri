@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.product-card {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  width: 300px;
+}
+
+.product-card h3 {
+  height: 3em;
+}
