@@ -14,10 +14,15 @@ namespace binbash.Models
     
     public partial class User
     {
+        public User()
+        {
+            this.Carts = new HashSet<Cart>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
     
-        public virtual Cart Cart { get; set; }
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

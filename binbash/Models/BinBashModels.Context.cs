@@ -13,10 +13,10 @@ namespace binbash.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StoreModelsContainer : DbContext
+    public partial class DefaultConnection : DbContext
     {
-        public StoreModelsContainer()
-            : base("name=StoreModelsContainer")
+        public DefaultConnection()
+            : base("name=DefaultConnection")
         {
         }
     
@@ -25,9 +25,9 @@ namespace binbash.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
