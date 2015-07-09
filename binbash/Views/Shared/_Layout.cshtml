@@ -10,24 +10,29 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("bin/bash", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("products", "Index", "Products")</li>
-                    <li>@Html.ActionLink("about", "About", "Home")</li>
-                    <li>@Html.ActionLink("contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Shopping Cart", "Cart", "Cart")</li>
-                </ul>
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("bin/bash", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="@Url.Action("Cart", "Cart", "Cart")">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                        Cart
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "null-container" : "") container body-content">
@@ -35,8 +40,10 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            <p>@Html.ActionLink("Private Policy", "PrivatePolicy", "Home") |
-            @Html.ActionLink("Terms And Conditions", "TermsAndConditions", "Home")</p>
+            <p>
+                @Html.ActionLink("Private Policy", "PrivatePolicy", "Home") |
+                @Html.ActionLink("Terms And Conditions", "TermsAndConditions", "Home")
+            </p>
         </footer>
     </div>
 

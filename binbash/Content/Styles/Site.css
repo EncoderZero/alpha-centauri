@@ -71,3 +71,7 @@ textarea {
 body {
   margin-top: 2rem;
 }
+
+.btn.btn-default {
+  background-color: #F5F5F5 !important;
+}
