@@ -5,26 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using binbash.Models;
 
-namespace binbash.Controllers
-{
-    public class CartController : Controller
-    {
+namespace binbash.Controllers {
+    public class CartController : Controller {
         // GET: Cart
-        public ActionResult Cart()
-        {
+        public ActionResult Cart() {
             return View();
         }
 
         // GET: Confrim
-        public ActionResult Confirm()
-        {
+        public ActionResult Confirm() {
             return View();
         }
 
-        //add products to cart
-        /* public ActionResult AddToCart()
-         {
-             return View();
-         }*/
+        public ActionResult AddToCart() {
+            var id = Request.QueryString["id"];
+
+            return Content("Hello " + id);
+        }
     }
 }
