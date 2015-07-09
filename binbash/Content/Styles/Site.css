@@ -50,3 +50,12 @@ textarea {
   background-color: #ffffff;
   border: 1px solid #dddddd;
 }
+
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panel {
+  margin-bottom: 3rem;
+}

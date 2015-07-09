@@ -3,6 +3,16 @@
     ViewBag.Title = "Cart Confirmation";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>&lt;Payment-Gateway data-provider="paypal"&gt;&lt;/Payment-Gateway&gt;</h2>
+<div class="card">
+    <div class="card-body">
+        <h2>
+            <small>$ node </small><br />
+            Checkout
+        </h2>
 
-@Html.ActionLink("Continue", "Complete", "Cart", new { @class = "btn btn-primary pull-right" })
+        <hr />
+        <h4>&lt;Payment-Gateway data-provider="paypal"&gt;&lt;/Payment-Gateway&gt;</h4>
+        @Html.ActionLink("Continue", "Complete", "Cart", new { @class = "btn btn-primary pull-right" })
+    </div>
+</div>
+

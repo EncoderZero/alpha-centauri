@@ -2,18 +2,31 @@
 @{
     ViewBag.Title = "Shopping Cart";
 }
-<h2>Shopping Cart</h2>
 
-<ul class="list-group">
-    @foreach(var product in Model.Products) {
-        <li class="list-group-item">
-            @Html.DisplayFor(modelItem => product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => product.Price)</strong>
-        </li>
-    }
-</ul>
+<div class="card">
+    <div class="card-body">
+        <h2>
+            <small>$ cat /usr/</small><br />
+            Cart
+        </h2>
 
-@{
-    if( Model.Products.Count() >= 1) {
-        @Html.ActionLink("Checkout", "Checkout", "Cart", new { @class = "btn btn-primary pull-right" })
-    }
-}
+        <hr />
+
+        @{
+            if(Model.Products.Count() >= 1) {
+                <ul class="list-group">
+                    @foreach(var product in Model.Products) {
+                        <li class="list-group-item">
+                            @Html.DisplayFor(modelItem => product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => product.Price)</strong>
+                        </li>
+                    }
+                </ul>
+
+
+                @Html.ActionLink("Checkout", "Checkout", "Cart", new { @class = "btn btn-primary pull-right" })
+            } else {
+                <h4>Your cart is empty</h4>
+            }
+        }
+    </div>
+</div>

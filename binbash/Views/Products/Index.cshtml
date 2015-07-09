@@ -8,42 +8,48 @@
 @foreach(var category in Model) {
     <section class="row">
         <div class="col-sm-12">
-            <h2>
-                <small>$ ls -lah /Products/</small><br />
-                @Html.DisplayFor(modelItem => category.Name)
-            </h2>
+            <div class="card">
+                <div class="card-body">
+                    <h2>
+                        <small>$ ls -lah /Products/</small><br />
+                        @Html.DisplayFor(modelItem => category.Name)
+                    </h2>
+                
+                    <hr />
 
-            @foreach(var product in category.Products) {
-                <div class="panel panel-default product-card">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h3>
-                                    @Html.DisplayFor(modelItem => product.Name)
-                                </h3>
-                            </div>
+                    @foreach(var product in category.Products) {
+                        <div class="panel panel-default product-card">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3>
+                                            @Html.DisplayFor(modelItem => product.Name)
+                                        </h3>
+                                    </div>
 
-                            <div class="col-xs-6">
-                                <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
+                                    <div class="col-xs-6">
+                                        <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
 
-                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                    @Html.DisplayFor(modelItem => product.Price)
-                              
-                                </a>
-                            </div>
+                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                            @Html.DisplayFor(modelItem => product.Price)
 
-                            <div class="col-xs-6">
-                                @Html.ActionLink(
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-6">
+                                        @Html.ActionLink(
                                     "Details",
                                     "Details",
                                     new { id = product.Id },
                                     new { @class = "btn btn-primary btn-block details-btn" }
                                 )
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
-            }
+            </div>
         </div>
     </section>
 }

@@ -5,24 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <h1>
-        <small>$ cat /products/@Html.DisplayFor(model => model.Category.Name)/</small><br />
-        @Html.DisplayFor(model => model.Name)
-    </h1>
-    <hr />
-    <p>
-        @Html.DisplayFor(model => model.Description)
-    </p>
-    
-    <h4>
-        <a href="@Url.Action("Cart", "Cart")" class="btn btn-success btn-block">
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-            @Html.DisplayFor(model => model.Price)
-        </a>
-        </h4>
+
+<div class="card">
+    <div class="card-body">
+        <h1>
+            <small>$ cat /products/@Html.DisplayFor(model => model.Category.Name)/</small><br />
+            @Html.DisplayFor(model => model.Name)
+        </h1>
+        <hr />
+        <p>
+            @Html.DisplayFor(model => model.Description)
+        </p>
+
+        <p>
+            @Html.ActionLink("Back to products", "Index", "Products", new { @class = "btn btn-default" })
+            <a href="@Url.Action("AddToCart", "Cart", new { id = Model.Id })" class="btn btn-success pull-right">
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                @Html.DisplayFor(model => model.Price)
+            </a>
+        </p>
     </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
