@@ -25,9 +25,6 @@ textarea {
     max-width: 280px;
 }
 
-.panel {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 .product-card {
   position: relative;
   display: inline-block;
@@ -39,16 +36,12 @@ textarea {
 .product-card h3 {
   height: 3em;
 }
+
 .full-width {
     width:100%;
 
 }
-.margin-top-15 {
-    margin-top:15px;
-}
-.margin-top-25 {
-    margin-top:25px;
-}
+
 .list-group .list-group-item {
   position: relative;
   display: block;
@@ -65,4 +58,16 @@ textarea {
 
 .panel {
   margin-bottom: 3rem;
+}
+
+.card .card-heading {
+  background-color: #009688;
+  color: rgba(255, 255, 255, 0.84);
+  border: 0;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+}
+
+body {
+  margin-top: 2rem;
 }
