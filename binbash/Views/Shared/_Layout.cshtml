@@ -25,6 +25,7 @@
                     <li>@Html.ActionLink("products", "Index", "Products")</li>
                     <li>@Html.ActionLink("about", "About", "Home")</li>
                     <li>@Html.ActionLink("contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Shopping Cart", "Cart", "Cart")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -35,6 +36,8 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>@Html.ActionLink("Private Policy", "PrivatePolicy", "Home") |
+            @Html.ActionLink("Terms And Conditions", "TermsAndConditions", "Home")</p>
         </footer>
     </div>
 
