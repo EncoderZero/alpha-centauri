@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "null-container" : "") container body-content">
         @RenderBody()
         <hr />
         <footer>

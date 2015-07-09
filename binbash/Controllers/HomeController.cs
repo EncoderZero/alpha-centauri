@@ -15,14 +15,16 @@ namespace binbash.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Title = "About Us";
+            ViewBag.Message = "Supppliers of all Your Nerdy Needs.";
+            ViewBag.OutClass = "null-container";
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Want to talk?";
+            ViewBag.Title = "Contact Us";
 
             return View();
         }
