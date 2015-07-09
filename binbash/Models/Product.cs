@@ -7,25 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace binbash.Models
-{
+namespace binbash.Models {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Product
-    {
-        public Product()
-        {
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class Product {
+        public Product() {
             this.Carts = new HashSet<Cart>();
         }
-    
+
         public int Id { get; set; }
+
         public string Name { get; set; }
+
         public string Description { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public double Price { get; set; }
+        
         public Nullable<int> CategoryId { get; set; }
-    
+
         public virtual Category Category { get; set; }
+        
         public virtual ICollection<Cart> Carts { get; set; }
     }
 }
