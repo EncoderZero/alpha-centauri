@@ -1,13 +1,10 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace binbash
-{
-    public class BundleConfig
-    {
+namespace binbash {
+    public class BundleConfig {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
-        public static void RegisterBundles(BundleCollection bundles)
-        {
+        public static void RegisterBundles(BundleCollection bundles) {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -29,9 +26,9 @@ namespace binbash
                       "~/Content/Styles/bootstrap.css",
                       "~/bower_components/bootstrap-material-design/dist/css/material.css",
                       "~/bower_components/bootstrap-material-design/dist/css/ripples.css",
-                      "~/Content/site.css"));
+                      "~/Content/Styles/site.css"));
 
- 
+
         }
     }
 }
