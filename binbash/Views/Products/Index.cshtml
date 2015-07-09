@@ -8,7 +8,10 @@
 @foreach(var category in Model) {
     <section class="row">
         <div class="col-sm-12">
-            <h2><small>/Products/</small>@Html.DisplayFor(modelItem => category.Name)</h2>
+            <h2>
+                <small>$ ls -lah /Products/</small><br />
+                @Html.DisplayFor(modelItem => category.Name)
+            </h2>
 
             @foreach(var product in category.Products) {
                 <div class="panel panel-default product-card">
@@ -22,9 +25,9 @@
 
                             <div class="col-xs-6">
                                 <a href="@Url.Action("Cart", "Cart")" class="btn btn-success btn-block">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                    $@Html.DisplayFor(modelItem => product.Price)
-                                </a>
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    @Html.DisplayFor(modelItem => product.Price)
+                                </div>
                             </div>
 
                             <div class="col-xs-6">
