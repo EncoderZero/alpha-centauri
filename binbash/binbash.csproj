@@ -170,6 +170,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BinBashModels.cs" />
+    <Compile Include="Models\BinBashViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -464,7 +465,8 @@
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Shared\PrivatePolicy.cshtml" />
     <Content Include="Views\Shared\TermsAndConditions.cshtml" />
-    <Content Include="Views\Cart\Confirm.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bower_components\bootstrap-material-design\meteor\example\packages\" />

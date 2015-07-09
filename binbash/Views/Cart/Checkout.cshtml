@@ -1,0 +1,8 @@
+﻿@model IEnumerable<binbash.Models.Product>
+@{
+    ViewBag.Title = "Cart Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>&lt;Payment-Gateway data-provider="paypal"&gt;&lt;/Payment-Gateway&gt;</h2>
+
+@Html.ActionLink("Continue", "Complete", "Cart", new { @class = "btn btn-primary pull-right" })

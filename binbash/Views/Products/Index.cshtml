@@ -24,7 +24,7 @@
                             </div>
 
                             <div class="col-xs-6">
-                                <a href="@Url.Action("Cart", "Cart")" class="btn btn-success btn-block">
+                                <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
 
                                     <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                     @Html.DisplayFor(modelItem => product.Price)
