@@ -1,4 +1,0 @@
-﻿<?xml version="1.0"?>
-<connectionStrings>
-  <add name="DefaultConnection" connectionString="metadata=res://*/Models.BinBashModels.csdl|res://*/Models.BinBashModels.ssdl|res://*/Models.BinBashModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;<!-- Big long stupid block o text -->&quot;" providerName="System.Data.EntityClient" />
-</connectionStrings>

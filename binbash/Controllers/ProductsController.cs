@@ -10,7 +10,7 @@ using binbash.Models;
 
 namespace binbash.Controllers {
     public class ProductsController : Controller {
-        private DefaultConnection db = new DefaultConnection();
+        private BinBashModels db = new BinBashModels();
 
         // GET: Products
         public ActionResult Index() {
