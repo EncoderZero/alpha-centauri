@@ -1,6 +1,8 @@
-﻿body {
+﻿@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,cyrillic-ext);
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: Ubuntu !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,6 +25,7 @@ textarea {
     max-width: 280px;
 }
 
+
 .product-card {
   position: relative;
   display: inline-block;
@@ -33,6 +36,10 @@ textarea {
 
 .product-card h3 {
   height: 3em;
+}
+.full-width {
+    width:100%;
+
 }
 
 .list-group .list-group-item {
