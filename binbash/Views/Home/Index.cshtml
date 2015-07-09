@@ -14,22 +14,17 @@
 </div>
 
 <div class="container">
-    <div class="col-md-6">
-        <h2>Power Up With bin/bash</h2>
-        <img src="../../Content/Images/superHeroes.jpg" alt="Superhero Siloette" class="imgDisplay" />
-        <p>
-            Want to buy our stuff? Get an account and we will send you offers and deals for all of the awesomeness that is bin/bash. Whether it's charging your mana,
-            modding your shell or even just grabbing some swag, bin/bash is your store. So come on and get an account.
-            <a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg pull-right">Sign Up Today</a>
-        </p>
-    </div>
-    <div class="col-md-6">
-        <h2>The Goods</h2>
-        <img src="../../Content/Images/zeldaWoodchest.jpg" alt="Wood Chest" class="imgDisplay" />
-        <p>
-            We got the goods. We carry items of all kinds. Go on and embrace the 1337 swag. We are sure that this will be a second 127.0.0.1 for all you nerds and geeks.
-            Step up your day and your life with our gear. Become your own hero with the items in our store. 
-        </p>
-        <a href="@Url.Action("Index","Products")" class="btn btn-primary btn-lg pull-right">Go to Products</a>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <h2>The Goods</h2>
+                <img src="../../Content/Images/zeldaWoodchest.jpg" alt="Wood Chest" class="imgDisplay" />
+                <p>
+                    We got the goods. We carry items of all kinds. Go on and embrace the 1337 swag. We are sure that this will be a second 127.0.0.1 for all you nerds and geeks.
+                    Step up your day and your life with our gear. Become your own hero with the items in our store.
+                </p>
+                @Html.ActionLink("Go to Products", "Index", "Products", null, new { @class="btn btn-primary btn-lg pull-right" })'
+            </div>
+        </div>
     </div>
 </div>

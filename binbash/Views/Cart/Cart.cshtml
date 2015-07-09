@@ -22,10 +22,11 @@
                     }
                 </ul>
 
-
-                @Html.ActionLink("Checkout", "Checkout", "Cart", new { @class = "btn btn-primary pull-right" })
+                @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
             } else {
                 <h4>Your cart is empty</h4>
+                @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
             }
         }
     </div>

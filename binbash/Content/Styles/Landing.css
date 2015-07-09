@@ -44,4 +44,9 @@
     display: block;
     width:100%;
     float: left;
+    margin-bottom: 3rem;
+}
+
+.jumbotron {
+  margin-top: -1rem;
 }
