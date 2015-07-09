@@ -26,5 +26,18 @@ namespace binbash.Controllers
 
             return View();
         }
+
+        public ActionResult PrivatePolicy()
+        {
+            ViewBag.Message = "Private Policy";
+
+            return View();
+        }
+        public ActionResult TermsAndConditions()
+        {
+            ViewBag.Message = "Terms And Conditions";
+
+            return View();
+        }
     }
 }

@@ -509,7 +509,8 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Shared\PrivatePolicy.cshtml" />
-    <Content Include="Views\Shared\TermAndConditions.cshtml" />
+    <Content Include="Views\Shared\TermsAndConditions.cshtml" />
+    <Content Include="Views\Cart\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bower_components\bootstrap-material-design\meteor\example\packages\" />

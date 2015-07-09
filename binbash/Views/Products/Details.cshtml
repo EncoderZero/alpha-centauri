@@ -16,9 +16,12 @@
     </p>
     
     <h4>
-        @Html.DisplayFor(model => model.Price)
-    </h4>
-</div>
+        <a href="@Url.Action("Cart", "Cart")" class="btn btn-success btn-block">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            @Html.DisplayFor(model => model.Price)
+        </a>
+        </h4>
+    </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
