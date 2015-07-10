@@ -29,6 +29,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -164,40 +166,18 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BinBashModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BinBashModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BinBashModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BinBashModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BinBashModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BinBashModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cart.cs">
-      <DependentUpon>BinBashModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Category.cs">
-      <DependentUpon>BinBashModels.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\BinBashModels.cs" />
+    <Compile Include="Models\BinBashViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>BinBashModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>BinBashModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CartService.cs" />
+    <Compile Include="Wrappers\SessionWrapper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -323,13 +303,23 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\superHeroes.jpg" />
+    <Content Include="Content\Images\zeldaWoodchest.jpg" />
+    <Content Include="Content\Styles\aboutUs.css" />
+    <Content Include="Content\Styles\bootstrap.css" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Images\2b4476de0577e2d541ca07d76612f376.jpg" />
+    <Content Include="Content\Images\adamJensen.jpg" />
+    <Content Include="Content\Images\Akroan-Phalanx.jpg" />
+    <Content Include="Content\Images\bacon.jpg" />
+    <Content Include="Content\Images\desktop-wallpapers-background-linux-ubuntu-252850.jpg" />
+    <Content Include="Content\Images\ninja_sketch.jpg" />
+    <Content Include="Content\Styles\contact.css" />
+    <Content Include="Content\Styles\Landing.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Models\BinBashModels.edmx.sql" />
+    <Content Include="Content\Styles\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include=".bin\bower.cmd" />
@@ -435,25 +425,6 @@
     <Content Include="bower_components\jquery\bower.json" />
     <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
-    <Content Include="ConnectionStrings.config.example" />
-    <EntityDeploy Include="Models\BinBashModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BinBashModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\BinBashModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BinBashModels.edmx</DependentUpon>
-      <LastGenOutput>BinBashModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\BinBashModels.edmx.diagram">
-      <DependentUpon>BinBashModels.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\BinBashModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BinBashModels.edmx</DependentUpon>
-      <LastGenOutput>BinBashModels.cs</LastGenOutput>
-    </Content>
-    <None Include="ConnectionStrings.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -506,14 +477,20 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Shared\PrivatePolicy.cshtml" />
+    <Content Include="Views\Shared\TermsAndConditions.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bower_components\bootstrap-material-design\meteor\example\packages\" />
+    <Folder Include="Views\Shopping\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
@@ -534,7 +511,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>41924</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

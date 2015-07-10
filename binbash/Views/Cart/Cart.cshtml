@@ -1,0 +1,33 @@
+﻿@model binbash.Models.CartCartViewModel
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h2>
+            <small>$ cat /usr/</small><br />
+            Cart
+        </h2>
+
+        <hr />
+
+        @{
+            if(Model.Products.Count() >= 1) {
+                <ul class="list-group">
+                    @foreach(var product in Model.Products) {
+                        <li class="list-group-item">
+                            @Html.DisplayFor(modelItem => product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => product.Price)</strong>
+                        </li>
+                    }
+                </ul>
+
+                @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
+            } else {
+                <h4>Your cart is empty</h4>
+                @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
+            }
+        }
+    </div>
+</div>

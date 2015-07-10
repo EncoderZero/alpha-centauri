@@ -1,0 +1,52 @@
+﻿.comp-text {
+    color:#109f05 !important;
+}
+.landingMain-bg {
+    background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../Images/desktop-wallpapers-background-linux-ubuntu-252850.jpg');
+    background-size:cover;
+    background-position:right bottom;
+    background-repeat:no-repeat;
+    height:500px;
+}
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  max-width:none;
+}
+.null-container {
+    padding:0;
+    margin:0;
+    max-width:none;
+    width:100%;
+}
+@media (min-width: 400px) {
+    .leadParagraph {
+        height: 85%;
+    }
+
+    .endParagraph {
+        height: 15%;
+    }
+}
+@media (max-width: 400px) {
+    .leadParagraph {
+        height: 75%;
+    }
+
+    .endParagraph {
+        height: auto;
+    }
+}
+.imgDisplay {
+    max-width: 250px;
+    height:auto;
+    margin-right: 15px;
+    display: block;
+    width:100%;
+    float: left;
+    margin-bottom: 3rem;
+}
+
+.jumbotron {
+  margin-top: -1rem;
+}

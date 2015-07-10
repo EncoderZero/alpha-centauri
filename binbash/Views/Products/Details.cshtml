@@ -5,47 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
+<div class="card">
+    <div class="card-body">
+        <h1>
+            <small>$ cat /products/@Html.DisplayFor(model => model.Category.Name)/</small><br />
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
+        </h1>
+        <hr />
+        <p>
             @Html.DisplayFor(model => model.Description)
-        </dd>
+        </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-
-    </dl>
+        <p>
+            @Html.ActionLink("Back to products", "Index", "Products", new { @class = "btn btn-default" })
+            <a href="@Url.Action("AddToCart", "Cart", new { id = Model.Id })" class="btn btn-success pull-right">
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                @Html.DisplayFor(model => model.Price)
+            </a>
+        </p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

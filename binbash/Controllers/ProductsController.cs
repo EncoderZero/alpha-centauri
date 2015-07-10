@@ -10,12 +10,13 @@ using binbash.Models;
 
 namespace binbash.Controllers {
     public class ProductsController : Controller {
-        private DefaultConnection db = new DefaultConnection();
+        private BinBashModels db = new BinBashModels();
 
         // GET: Products
         public ActionResult Index() {
             var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            var categories = db.Categories.Include(p => p.Products);
+            return View(categories.ToList());
         }
 
         // GET: Products/Details/5

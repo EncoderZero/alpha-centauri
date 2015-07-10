@@ -1,0 +1,77 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,cyrillic-ext);
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Ubuntu !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.product-card {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  width: 300px;
+}
+
+.product-card h3 {
+  height: 3em;
+}
+
+.full-width {
+    width:100%;
+
+}
+
+.list-group .list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panel {
+  margin-bottom: 3rem;
+}
+
+.card .card-heading {
+  background-color: #009688;
+  color: rgba(255, 255, 255, 0.84);
+  border: 0;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+}
+
+body {
+  margin-top: 2rem;
+}
+
+.btn.btn-default {
+  background-color: #F5F5F5 !important;
+}
