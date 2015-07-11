@@ -181,10 +181,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\TestDatabase.mdf" />
-    <Content Include="App_Data\TestDatabase_log.ldf">
-      <DependentUpon>TestDatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="bower_components\bootstrap-material-design\bootstrap-elements.html" />
     <Content Include="bower_components\bootstrap-material-design\dist\css\material-fullpalette.css" />
     <Content Include="bower_components\bootstrap-material-design\dist\css\material-fullpalette.min.css" />
@@ -303,6 +299,8 @@
     <Content Include="bower_components\jquery\src\var\support.js" />
     <Content Include="bower_components\jquery\src\var\toString.js" />
     <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="Content\Images\logo-black.png" />
+    <Content Include="Content\Images\logo-white.png" />
     <Content Include="Content\Images\superHeroes.jpg" />
     <Content Include="Content\Images\zeldaWoodchest.jpg" />
     <Content Include="Content\Styles\aboutUs.css" />
@@ -485,6 +483,7 @@
     <Content Include="Views\Cart\Complete.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="bower_components\bootstrap-material-design\meteor\example\packages\" />
     <Folder Include="Views\Shopping\" />
   </ItemGroup>
