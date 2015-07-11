@@ -425,6 +425,7 @@
     <Content Include="bower_components\jquery\bower.json" />
     <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+    <None Include="Properties\PublishProfiles\binbash.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
