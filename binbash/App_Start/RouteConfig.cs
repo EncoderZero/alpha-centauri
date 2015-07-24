@@ -20,7 +20,7 @@ namespace binbash {
                name: "cart",
                url: "cart",
                defaults: new { controller = "Cart", action = "Cart" }
-           );
+            );
 
             routes.MapRoute(
                 name: "Default",

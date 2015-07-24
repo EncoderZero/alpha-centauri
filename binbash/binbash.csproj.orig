@@ -433,6 +433,7 @@
     <Content Include="bower_components\jquery\bower.json" />
     <Content Include="bower_components\jquery\dist\jquery.min.map" />
     <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.min.map" />
+<<<<<<< HEAD
     <Content Include="bower_components\material-design-color-palette\.bower.json" />
     <Content Include="bower_components\material-design-color-palette\.gitignore" />
     <Content Include="bower_components\material-design-color-palette\bower.json" />
@@ -484,6 +485,7 @@
     <Content Include="bower_components\font-awesome\scss\_rotated-flipped.scss" />
     <Content Include="bower_components\font-awesome\scss\_stacked.scss" />
     <Content Include="bower_components\font-awesome\scss\_variables.scss" />
+=======
     <Content Include="Content\Images\Products\.gitkeep" />
     <Content Include="fonts\glyphicons-halflings-regular.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -494,6 +496,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+>>>>>>> master
     <None Include="Properties\PublishProfiles\binbash.pubxml" />
     <None Include="Properties\PublishProfiles\spy-binbash.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

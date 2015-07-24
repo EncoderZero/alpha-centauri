@@ -13,11 +13,11 @@
         <hr />
 
         @{
-            if(Model.Products.Count() >= 1) {
+            if(Model.CartItems.Count() >= 1) {
                 <ul class="list-group">
-                    @foreach(var product in Model.Products) {
+                    @foreach(var cartItem in Model.CartItems) {
                         <li class="list-group-item">
-                            @Html.DisplayFor(modelItem => product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => product.Price)</strong>
+                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x@(cartItem.Quantity.ToString()) </strong>
                         </li>
                     }
                 </ul>

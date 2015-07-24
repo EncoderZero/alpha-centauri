@@ -5,6 +5,7 @@ namespace binbash.Models {
     using System.Linq;
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using System.Web;
 
     public partial class BinBashModels : DbContext {
         public BinBashModels()
@@ -63,6 +64,8 @@ namespace binbash.Models {
         public int? CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public string ImageURL { get; set; }
     }
     public partial class User {
         public int Id { get; set; }
@@ -74,4 +77,13 @@ namespace binbash.Models {
         public string Email { get; set; }
     }
 
+    public partial class CartItem {
+        public int Quantity { get; set; }
+
+        public int ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
+
+        public double ItemTotal { get; set; }
+    }
 }

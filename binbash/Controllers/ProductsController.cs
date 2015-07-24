@@ -7,14 +7,16 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using binbash.Models;
+using System.IO;
 
 namespace binbash.Controllers {
     public class ProductsController : Controller {
         private BinBashModels db = new BinBashModels();
 
+        private const string PRODUCT_IMAGE_FOLDER_PATH = "/Content/Images/Products/";
+
         // GET: Products
         public ActionResult Index() {
-            var products = db.Products.Include(p => p.Category);
             var categories = db.Categories.Include(p => p.Products);
             return View(categories.ToList());
         }
@@ -91,6 +93,34 @@ namespace binbash.Controllers {
                 return HttpNotFound();
             }
             return View(product);
+        }
+
+        // POST: Product/UploadImage/5
+        [HttpPost]
+        public ActionResult UploadImage(int? id, HttpPostedFileBase ProductImage) {
+
+            if(id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            } else if(ProductImage == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Product product = db.Products.Find(id);
+            if(product == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            string extension = Path.GetExtension(ProductImage.FileName);
+            string filename = id.ToString() + extension;
+            string fileURL = Path.Combine(PRODUCT_IMAGE_FOLDER_PATH, filename);
+            string filePath = Path.Combine(Server.MapPath("~" + PRODUCT_IMAGE_FOLDER_PATH), filename);
+
+            ProductImage.SaveAs(filePath);
+            product.ImageURL = fileURL;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // POST: Products/Delete/5
