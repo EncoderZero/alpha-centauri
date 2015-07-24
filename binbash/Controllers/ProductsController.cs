@@ -118,7 +118,7 @@ namespace binbash.Controllers {
             ProductImage.SaveAs(filePath);
             product.ImageURL = fileURL;
 
-            //db.SaveChanges();
+            db.SaveChanges();
 
             return RedirectToAction("Index");
         }
