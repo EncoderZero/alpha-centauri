@@ -10,34 +10,65 @@ namespace binbash.Controllers {
 
     public class CartController : Controller {
 
+        // GET: Cart/Cart
         public ActionResult Cart() {
             BinBashModels db = new BinBashModels();
             CartCartViewModel viewModel = new CartCartViewModel();
 
-            List<int> cartProducts = CartService.getItems();
-            viewModel.Products = db.Products.Where(p => cartProducts.Contains(p.Id)).ToArray();
+            var Products = db.Products.ToList();
+
+            viewModel.CartItems = CartService.GetItems();
+            viewModel.TotalPrice = 0;
+
+            foreach(CartItem cartItem in viewModel.CartItems) {
+                cartItem.Product = Products.Find(p => p.Id == cartItem.ProductId);
+                cartItem.ItemTotal = cartItem.Product.Price * cartItem.Quantity;
+
+                viewModel.TotalPrice += cartItem.ItemTotal;
+            }
 
             return View(viewModel);
         }
 
+        // GET: Cart/Checkout
         public ActionResult Checkout() {
             return View();
         }
 
+        // GET: Cart/Complete
         public ActionResult Complete() {
-            CartService.clear();
+            CartService.Clear();
 
             return View();
         }
 
+        // GET: Cart/AddToCart?id=5
         public ActionResult AddToCart() {
             int id = Convert.ToInt32(Request.QueryString["id"]);
 
-            var foo = CartService.addItem(id);
+            CartService.addItem(id);
 
             return RedirectToAction("cart");
         }
 
+        // GET: Cart/SetCartQuantity?id=5&quantity=1
+        public ActionResult SetCartQuantity() {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            int quantity = Convert.ToInt32(Request.QueryString["quantity"]);
+
+            CartService.SetItemQuanity(id, quantity);
+
+            return RedirectToAction("cart");
+        }
+
+        // GET: Cart/RemoveFromCart?id=5
+        public ActionResult RemoveFromCart() {
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+
+            CartService.RemoveItem(id);
+
+            return RedirectToAction("cart");
+        }
 
     }
 }
