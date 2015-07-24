@@ -328,6 +328,13 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\Styles\Site.css" />
+    <Content Include="images\logos\badge-dark.svg" />
+    <Content Include="images\logos\badge-light.svg" />
+    <Content Include="images\logos\full-logo-dark.svg" />
+    <Content Include="images\logos\full-logo-light.svg" />
+    <Content Include="images\the_dark_knight.png" />
+    <Content Include="images\video-controller-336657_640.jpg" />
+    <Content Include="images\zeldaWoodchest.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include=".bin\bower.cmd" />
