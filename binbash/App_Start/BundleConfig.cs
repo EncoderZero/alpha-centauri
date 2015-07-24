@@ -26,9 +26,9 @@ namespace binbash {
                       "~/Content/Styles/bootstrap.css",
                       "~/bower_components/bootstrap-material-design/dist/css/material.css",
                       "~/bower_components/bootstrap-material-design/dist/css/ripples.css",
+                      "~/bower_components/material-design-color-palette/css/material-design-color-palette.css",
+                      "~/bower_components/font-awesome/css/font-awesome.css",
                       "~/Content/Styles/site.css"));
-
-
         }
     }
 }

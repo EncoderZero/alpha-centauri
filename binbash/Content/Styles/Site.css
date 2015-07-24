@@ -1,9 +1,98 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html {
+    min-height: 100%;
     font-family: Ubuntu;
 }
 
+body {
+    min-height: 100%;
+    padding-top: 50px;
+}
+
+.product-list {
+    display: inherit;
+}
+
+.no-list{    
+    list-style:none;
+    padding:0;
+}
+
+.null-container {
+    min-height: 100%;
+}
+
+pad-top {
+    padding-top: 50px;
+}
+
+.img-brand {
+    max-width: 150px !important;
+}
+
+.navbar-brand {
+    padding-top: 5px !important;
+}
+
+.img-controller {
+    background-size: contain;
+    min-height: 170px;
+}
+
+.footer-bottom {
+    position: static;
+    margin-top: -50px; /* negative value of footer height */
+    height: 50px;
+    clear: both;
+    padding-top: 20px;
+}
+
+pre {
+    border: none;
+}
+
+.card-pad {
+    margin-top: 60px;
+}
+
+.fixed-card {
+    min-height: 543px;
+}
+
+.no-pad {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pad {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.pad-top {
+    margin-top: 15px;
+}
+
+.no-border {
+    border: none;
+}
+
+.fixed-bottom-15 {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.btn {
+    border-color: transparent !important;
+}
+
+.btn-fab {
+    padding: 13px !important;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px !important;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -25,52 +114,39 @@ textarea {
 }
 
 .product-card {
-  position: relative;
-  display: inline-block;
-  float: left;
-  margin: 10px;
-  width: 300px;
+    position: relative;
+    margin: 10px;
 }
 
-.product-card h3 {
-  height: 3em;
-}
+    .product-card h3 {
+        height: 3em;
+    }
 
 .full-width {
-    width:100%;
-
+    width: 100%;
 }
 
 .list-group .list-group-item {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin-bottom: -1px;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-}
-
-.card {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
 }
 
 .panel {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 .card .card-heading {
-  background-color: #009688;
-  color: rgba(255, 255, 255, 0.84);
-  border: 0;
-  padding: 10px 15px;
-  border-bottom: 1px solid transparent;
-}
-
-body {
-  margin-top: 2rem;
+    background-color: #009688;
+    color: rgba(255, 255, 255, 0.84);
+    border: 0;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
 }
 
 .btn.btn-default {
-  background-color: #F5F5F5 !important;
+    background-color: #F5F5F5 !important;
 }

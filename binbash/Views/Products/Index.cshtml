@@ -7,47 +7,52 @@
 
 @foreach(var category in Model) {
     <section class="row">
-        <div class="col-sm-12">
-            <div class="card">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="card  card-pad mdc-bg-grey-900 mdc-text-grey-50">
                 <div class="card-body">
                     <h2>
                         <small>$ ls -lah /Products/</small><br />
                         @Html.DisplayFor(modelItem => category.Name)
                     </h2>
-                
+
                     <hr />
+                    
+                    <ul class="no-list">
+                        @foreach (var product in category.Products)
+                        {
+                            <li class="text-center product-list col-xs-4">
+                                <div class="mdc-text-grey-900 panel panel-default product-card">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h3>
+                                                    @Html.DisplayFor(modelItem => product.Name)
+                                                </h3>
+                                            </div>
 
-                    @foreach(var product in category.Products) {
-                        <div class="panel panel-default product-card">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h3>
-                                            @Html.DisplayFor(modelItem => product.Name)
-                                        </h3>
-                                    </div>
+                                            <div class="col-xs-6">
+                                                <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
 
-                                    <div class="col-xs-6">
-                                        <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
+                                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                                    @Html.DisplayFor(modelItem => product.Price)
 
-                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                            @Html.DisplayFor(modelItem => product.Price)
+                                                </a>
+                                            </div>
 
-                                        </a>
-                                    </div>
-
-                                    <div class="col-xs-6">
-                                        @Html.ActionLink(
+                                            <div class="col-xs-6">
+                                                @Html.ActionLink(
                                     "Details",
                                     "Details",
                                     new { id = product.Id },
                                     new { @class = "btn btn-primary btn-block details-btn" }
                                 )
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    }
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
         </div>
