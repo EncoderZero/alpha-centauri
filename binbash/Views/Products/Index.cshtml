@@ -6,9 +6,9 @@
 }
 
 @foreach(var category in Model) {
-    <section class="row">
+    <div class="container-fluid">
         <div class="col-sm-10 col-sm-offset-1">
-            <div class="card  card-pad mdc-bg-grey-900 mdc-text-grey-50">
+            <div class="card card-pad mdc-bg-grey-900 mdc-text-grey-50">
                 <div class="card-body">
                     <h2>
                         <small>$ ls -lah /Products/</small><br />
@@ -16,7 +16,7 @@
                     </h2>
 
                     <hr />
-                    
+
                     <ul class="no-list">
                         @foreach (var product in category.Products)
                         {
@@ -56,5 +56,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 }
