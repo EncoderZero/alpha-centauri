@@ -1,11 +1,11 @@
 ﻿<link href="~/Content/Styles/Landing.css" rel="stylesheet" />
 @{
-    ViewBag.Title = "Home Page";
+ViewBag.Title = "Home Page";
 }
 <div class="main">
     <div class="container-fluid">
         <div class="col-sm-10 col-sm-offset-1">
-            <div class=" card card-pad mdc-bg-grey-900 mdc-text-grey-50">
+            <div class="card card-pad mdc-bg-grey-900 mdc-text-grey-50">
                 <div class="card-body">
                     <h1>Hello World!</h1>
                     <p class="lead">
@@ -21,51 +21,59 @@
     </div>
     <div class="container-fluid">
         <div class="col-sm-10 col-sm-offset-1">
-            <div class="col-sm-4">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <div class=" card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
-                        <div class="card-body">
-                            <h2>The Goods</h2> >_
-                            <a  href="@Url.Action("Index", "Products")">
-                                <img class="img img-responsive img-thumbnail card pad-top" src="/images/video-controller-336657_640.jpg">
-                            </a>
-                            <p>We got the goods. We carry items of all kinds. Go on and embrace the 1337 swag. We are sure that this will be a second 127.0.0.1 for all you nerds and geeks. Step up your day and your life with our gear. Become your own hero with the items in our store.</p>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
+                                <div class="card-body">
+                                    <h2>The Goods</h2> >_
+                                    <a  href="@Url.Action("Index", "Products")">
+                                        <img class="img img-responsive img-thumbnail card pad-top" src="/images/video-controller-336657_640.jpg">
+                                    </a>
+                                    <p>We got the goods. We carry items of all kinds. Go on and embrace the 1337 swag. We are sure that this will be a second 127.0.0.1 for all you nerds and geeks. Step up your day and your life with our gear. Become your own hero with the items in our store.</p>
 
-                            <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("Index", "Products")">
-                                <i class="fa fa-arrow-right"></i>
-                            </a>
-</div>
+                                    <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("Index", "Products")">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <div class=" card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
-                        <div class="card-body">
-                            <h2>The Team</h2> >_
+                <div class="col-md-4 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
+                                <div class="card-body">
+                                    <h2>The Team</h2> >_
 
-                            <a href="@Url.Action("About", "Home")">
-                                <img class="img img-responsive img-thumbnail card pad-top" src="/images/the_dark_knight.png">
-                            </a>
-                            <p>Meet the team of coders, bringing you the power and fun you crave, in the $HOME you desire.</p>
-                            <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("About", "Home")">
-                                <i class="fa fa-arrow-right"></i>
-                            </a>
-</div>
+                                    <a href="@Url.Action("About", "Home")">
+                                        <img class="img img-responsive img-thumbnail card pad-top" src="/images/the_dark_knight.png">
+                                    </a>
+                                    <p>Meet the team of coders, bringing you the power and fun you crave, in the $HOME you desire.</p>
+                                    <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("About", "Home")">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <div class=" card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
-                        <div class="card-body">
-                            <h2>Contact Us</h2> >_
-                            <img class="img img-responsive img-thumbnail card pad-top" src="/images/the_dark_knight.png" />
-                            <p>Meet the team of coders, bringing you the power and fun you crave, in the $HOME you desire.</p>
-                            <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("Contact", "Home")">
-                                <i class="fa fa-arrow-right"></i>
-                            </a>
-</div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="card card-pad fixed-card mdc-bg-grey-900 mdc-text-grey-50">
+                                <div class="card-body">
+                                    <h2>Contact Us</h2> >_
+                                    <img class="img img-responsive img-thumbnail card pad-top" src="/images/the_dark_knight.png" />
+                                    <p>Meet the team of coders, bringing you the power and fun you crave, in the $HOME you desire.</p>
+                                    <a class="btn btn-fab btn-raised btn-primary pull-right fixed-bottom-15" href="@Url.Action("Contact", "Home")">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

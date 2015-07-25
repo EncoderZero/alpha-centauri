@@ -4,25 +4,23 @@
 }
 
 body {
+    position: absolute;
     min-height: 100%;
     padding-top: 50px;
+    padding-bottom: 80px;
 }
 
 .product-list {
     display: inherit;
 }
 
-.no-list{    
+.no-list{
     list-style:none;
     padding:0;
 }
 
 .null-container {
     min-height: 100%;
-}
-
-pad-top {
-    padding-top: 50px;
 }
 
 .img-brand {
@@ -38,12 +36,21 @@ pad-top {
     min-height: 170px;
 }
 
+.img-thumbnail {
+    margin-bottom: 10px;
+}
+
 .footer-bottom {
-    position: static;
-    margin-top: -50px; /* negative value of footer height */
+    position: absolute;
+    left: 0;
+    bottom: 0;
     height: 50px;
+    width: 100%;
     clear: both;
-    padding-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 15px;
 }
 
 pre {
@@ -99,8 +106,8 @@ pre {
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
 */
 .dl-horizontal dt {
     white-space: normal;
