@@ -306,7 +306,9 @@
     <Content Include="bower_components\material-design-color-palette\css\material-design-color-palette.min.css" />
     <Content Include="Content\Images\logo-black.png" />
     <Content Include="Content\Images\logo-white.png" />
+    <Content Include="Content\Images\mastercard_thumb.png" />
     <Content Include="Content\Images\superHeroes.jpg" />
+    <Content Include="Content\Images\visa.png" />
     <Content Include="Content\Images\zeldaWoodchest.jpg" />
     <Content Include="Content\Styles\aboutUs.css" />
     <Content Include="Content\Styles\bootstrap.css" />

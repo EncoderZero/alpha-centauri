@@ -181,3 +181,7 @@ textarea {
 .btn.btn-default {
     background-color: #F5F5F5 !important;
 }
+
+.credit-cardIcon {
+    max-width:100px;
+}

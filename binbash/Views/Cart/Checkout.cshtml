@@ -11,7 +11,53 @@
         </h2>
 
         <hr />
-        <h4>&lt;Payment-Gateway data-provider="paypal"&gt;&lt;/Payment-Gateway&gt;</h4>
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <filedset class="col-xs-12 col-sm-6">
+                        <legend>Payment Info</legend>
+                        <div class="input-group">
+                            <label for="name">Name On Card:</label>
+                            <input type="text" id="name" />
+                        </div>
+                        <div class="input-group">
+                            <label for="cardType">Card Type:</label>
+                            <br />
+                            <span>
+                                <input type="radio" />
+                                <img src="~/Content/Images/visa.png" class="credit-cardIcon" />
+                            </span>
+                            <span>
+                                <input type="radio" />
+                                <img src="~/Content/Images/mastercard_thumb.png" class="credit-cardIcon" />
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="input-group">
+                            <label for="cardNumber">Card Number:</label>
+                            <input type="text" id="cardNumber" />
+                        </div>
+                    </filedset>
+                    <fieldset class="col-xs-12 col-sm-6">
+                        <legend>Shipping Info</legend>
+                        <div class="input-group">
+                            <label for="shipAddress">Shipping Address:</label>
+                            <input type="text" id="shipAddress" />
+                        </div>
+                        <div class="input-group">
+                            <label for="shipCode">Postal Code:</label>
+                            <input type="text" id="shipCode" />
+                        </div>
+                        <div class="input-group">
+                            <label for="shipCountry">Country:</label>
+                            <input type="text" id="shipCountry" />
+                        </div>
+                    </fieldset>
+                    
+                </div>
+
+            </form>
+        </div>
         @Html.ActionLink("Continue", "Complete", "Cart", null, new { @class = "btn btn-primary pull-right" })
     </div>
 </div>
