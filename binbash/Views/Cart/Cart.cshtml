@@ -13,17 +13,30 @@
         <hr />
 
         @{
+            
+            double subtotal = 0;
             if(Model.CartItems.Count() >= 1) {
                 <ul class="list-group">
+                    
                     @foreach(var cartItem in Model.CartItems) {
                         <li class="list-group-item">
-                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x@(cartItem.Quantity.ToString()) </strong>
+                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x <input type="number" min="1" value="@(cartItem.Quantity.ToString())"/> </strong>
                         </li>
+                        subtotal += cartItem.Product.Price * cartItem.Quantity;
                     }
                 </ul>
-
-                @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
-                @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
+                <div class="col-xs-12">
+                    <div class="text-right">
+                        <h4>SubTotal: @subtotal.ToString("f2")</h4>
+                        <h4>Tax: @((subtotal * 0.13).ToString("f2"))</h4>
+                        <h4>Total: @((subtotal * 1.13).ToString("f2"))</h4>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
+                </div>
+                
             } else {
                 <h4>Your cart is empty</h4>
                 @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
