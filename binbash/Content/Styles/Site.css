@@ -126,9 +126,32 @@ textarea {
     margin: 10px;
 }
 
-    .product-card h3 {
-        height: 3em;
-    }
+.product-card h3 {
+    height: 3em;
+}
+
+.product-img {
+    height:350px;
+}
+.product-img img {
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    position: relative;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.product-quantity {
+    padding-top: 15px;
+    width: 100%;
+}
 
 .full-width {
     width: 100%;

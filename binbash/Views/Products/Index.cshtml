@@ -29,7 +29,23 @@
                                                     @Html.DisplayFor(modelItem => product.Name)
                                                 </h3>
                                             </div>
+                                            <div class="col-xs-12 product-img">
+                                                @if (product.ImageURL == null)
+                                                {
+                                                    <img src="~/Content/Images/logo-black.png" class="img-responsive" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="@product.ImageURL" class="img-responsive" />
+                                                }
 
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="input-group product-quantity">
+                                                    <label>Quantity</label>
+                                                    <input type="number" placeholder="Quantity" value="1" />
+                                                </div>
+                                            </div>
                                             <div class="col-xs-6">
                                                 <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
 
