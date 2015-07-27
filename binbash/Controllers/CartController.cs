@@ -44,10 +44,7 @@ namespace binbash.Controllers {
 
         // POST: Cart/add
         [HttpPost]
-        public ActionResult AddToCart() {
-            int id = Convert.ToInt32(Request.Form.Get("id"));
-            int quantity = Convert.ToInt32(Request.Form.Get("quantity"));
-
+        public ActionResult AddToCart(int id, int quantity) {
             CartService.addItem(id, quantity);
 
             return RedirectToAction("cart");
