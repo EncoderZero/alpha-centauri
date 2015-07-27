@@ -11,13 +11,13 @@ namespace binbash {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "addToCart",
+                name: "AddToCart",
                 url: "cart/add",
                 defaults: new { controller = "Cart", action = "AddToCart" }
             );
 
             routes.MapRoute(
-               name: "cart",
+               name: "Cart",
                url: "cart",
                defaults: new { controller = "Cart", action = "Cart" }
             );
