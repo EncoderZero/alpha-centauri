@@ -75,8 +75,15 @@ namespace binbash.Controllers {
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId")] Product product) {
             if(ModelState.IsValid) {
-                db.Entry(product).State = EntityState.Modified;
+
+                Product dbProduct = db.Products.Find(product.Id);
+                dbProduct.Name = product.Name;
+                dbProduct.Description = product.Description;
+                dbProduct.Price = product.Price;
+                dbProduct.CategoryId = product.CategoryId;
+
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
