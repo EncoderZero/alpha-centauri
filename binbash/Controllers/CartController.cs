@@ -42,14 +42,11 @@ namespace binbash.Controllers {
             return View();
         }
 
-        // GET: Cart/AddToCart?id=5&[quantity=1]
+        // POST: Cart/add
+        [HttpPost]
         public ActionResult AddToCart() {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            int quantity;
-
-            if(!int.TryParse(Request.QueryString["quantity"], out quantity)) {
-                quantity = 1;
-            };
+            int id = Convert.ToInt32(Request.Form.Get("id"));
+            int quantity = Convert.ToInt32(Request.Form.Get("quantity"));
 
             CartService.addItem(id, quantity);
 
