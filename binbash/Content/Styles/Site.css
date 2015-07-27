@@ -147,7 +147,9 @@ textarea {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
+.product-detail-img {
+    max-width:340px;
+}
 .product-quantity {
     padding-top: 15px;
     width: 100%;

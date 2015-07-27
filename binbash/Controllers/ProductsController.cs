@@ -73,7 +73,7 @@ namespace binbash.Controllers {
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId")] Product product) {
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId,ImageURL")] Product product) {
             if(ModelState.IsValid) {
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();

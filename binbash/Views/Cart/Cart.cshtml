@@ -16,11 +16,13 @@
             
             double subtotal = 0;
             if(Model.CartItems.Count() >= 1) {
+                
                 <ul class="list-group">
                     
                     @foreach(var cartItem in Model.CartItems) {
                         <li class="list-group-item">
-                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x <input type="number" min="1" value="@(cartItem.Quantity.ToString())"/> </strong>
+                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x <input type="number" min="1" placeholder="Quantity" name="Quantity" id="Quantity-@cartItem.ProductId" value="@cartItem.Quantity" />
+<input type="hidden" name="id" value="@cartItem.ProductId" /> </strong>
                         </li>
                         subtotal += cartItem.Product.Price * cartItem.Quantity;
                     }

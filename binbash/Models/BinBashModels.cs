@@ -66,6 +66,8 @@ namespace binbash.Models {
         public virtual Category Category { get; set; }
 
         public string ImageURL { get; set; }
+        [NotMapped]
+        public int Quantity { get; set; }
     }
     public partial class User {
         public int Id { get; set; }

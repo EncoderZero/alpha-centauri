@@ -40,29 +40,27 @@
                                                 }
 
                                             </div>
-                                            <div class="col-xs-12">
-                                                <div class="input-group product-quantity">
-                                                    <label>Quantity</label>
-                                                    <input type="number" placeholder="Quantity" value="1" />
+                                            @using (Html.BeginForm("AddToCart", "Cart")) { 
+                                                <div class="col-xs-12">
+                                                    <div class="input-group product-quantity">
+                                                        <label for="Quantity-@product.Id">Quantity</label>
+                                                        <input type="number" placeholder="Quantity" name="Quantity" id="Quantity-@product.Id" value="1" />
+                                                        <input type="hidden" name="id" value="@product.Id"/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <a href="@Url.Action("AddToCart", "Cart", new { id = product.Id } )" class="btn btn-success btn-block">
+                                                <div class="col-xs-6">
+                                                    <button type="submit" class="btn btn-success btn-block">
 
-                                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                                    @Html.DisplayFor(modelItem => product.Price)
+                                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                                        @Html.DisplayFor(modelItem => product.Price)
 
-                                                </a>
-                                            </div>
+                                                    </button>
+                                                </div>
 
-                                            <div class="col-xs-6">
-                                                @Html.ActionLink(
-                                    "Details",
-                                    "Details",
-                                    new { id = product.Id },
-                                    new { @class = "btn btn-primary btn-block details-btn" }
-                                )
-                                            </div>
+                                                <div class="col-xs-6">
+                                                    @Html.ActionLink("Details","Details", new { id = product.Id }, new { @class = "btn btn-primary btn-block details-btn" })
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>

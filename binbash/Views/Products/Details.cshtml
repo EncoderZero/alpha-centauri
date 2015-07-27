@@ -13,16 +13,32 @@
             @Html.DisplayFor(model => model.Name)
         </h1>
         <hr />
+        <div class="col-xs-12">
+            @if (Model.ImageURL == null)
+            {
+                <img src="~/Content/Images/logo-black.png" class="img-responsive product-detail-img" />
+            }
+            else
+            {
+                <img src="@Model.ImageURL" class="img-responsive product-detail-img" />
+            }
+        </div>
         <p>
             @Html.DisplayFor(model => model.Description)
         </p>
-
-        <p>
-            @Html.ActionLink("Back to products", "Index", "Products", new { @class = "btn btn-default" })
-            <a href="@Url.Action("AddToCart", "Cart", new { id = Model.Id })" class="btn btn-success pull-right">
-                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                @Html.DisplayFor(model => model.Price)
-            </a>
-        </p>
+        @using (Html.BeginForm("AddToCart", "Cart")) {
+            <p>
+                <label for="Quantity-@Model.Id">Quantity</label>
+                <input type="number" placeholder="Quantity" name="Quantity" id="Quantity-@Model.Id" value="1" />
+                <input type="hidden" name="id" value="@Model.Id" />
+            </p>
+            <p>
+                @Html.ActionLink("Back to products", "Index", "Products", new { @class = "btn btn-default" })
+                <button class="btn btn-success pull-right">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    @Html.DisplayFor(model => model.Price)
+                </button>
+            </p>
+        }
     </div>
 </div>
