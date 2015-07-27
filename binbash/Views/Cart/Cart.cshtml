@@ -6,43 +6,70 @@
 <div class="card">
     <div class="card-body">
         <h2>
-            <small>$ cat /usr/</small><br />
+            <small>$ cat /usr/</small>
+            <br />
             Cart
         </h2>
 
         <hr />
-
-        @{
-            
-            double subtotal = 0;
-            if(Model.CartItems.Count() >= 1) {
+        @if(Model.CartItems.Count() >= 1)
+        {
+            <table class="table col-xs-12">
+                <tr>
+                    <th>Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>SubTotal</th>
+                    <th>Remove</th>
+                </tr>
                 
-                <ul class="list-group">
-                    
-                    @foreach(var cartItem in Model.CartItems) {
-                        <li class="list-group-item">
-                            @Html.DisplayFor(modelItem => cartItem.Product.Name) <strong class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price) x <input type="number" min="1" placeholder="Quantity" name="Quantity" id="Quantity-@cartItem.ProductId" value="@cartItem.Quantity" />
-<input type="hidden" name="id" value="@cartItem.ProductId" /> </strong>
-                        </li>
-                        subtotal += cartItem.Product.Price * cartItem.Quantity;
+                    @foreach (var cartItem in Model.CartItems)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => cartItem.Product.Name)
+                            </td>
+                            <td>
+                                <strong>
+                                    @Html.DisplayFor(modelItem => cartItem.Product.Price)
+                                </strong>
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("SetCartQuantity", "Cart"))
+                                {
+                                    <input type="number" min="1" placeholder="Quantity" name="Quantity" id="Quantity-@cartItem.ProductId" value="@cartItem.Quantity" onblur="submit()" />
+                                    <input type="hidden" name="id" value="@cartItem.ProductId" />
+                                }
+                            </td>
+                            <td>
+                                @(cartItem.ItemTotal.ToString("f2"))
+                            </td>
+                            <td>
+                                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                {
+                                    <button type="submit" class="btn btn-danger btn-sm" value="Remove">X</button>
+                                    <input type="hidden" name="id" value="@cartItem.ProductId" />
+                                }
+                            </td>
+                        </tr>
                     }
-                </ul>
-                <div class="col-xs-12">
-                    <div class="text-right">
-                        <h4>SubTotal: @subtotal.ToString("f2")</h4>
-                        <h4>Tax: @((subtotal * 0.13).ToString("f2"))</h4>
-                        <h4>Total: @((subtotal * 1.13).ToString("f2"))</h4>
-                    </div>
+            </table>
+            <div class="col-xs-12">
+                <div class="text-right">
+                    <h4>SubTotal: @Model.TotalPrice.ToString("C")</h4>
+                        <h4>Tax: @((Model.TotalPrice * 0.13).ToString("C"))</h4>
+                        <h4>Total: @((Model.TotalPrice * 1.13).ToString("C"))</h4>
                 </div>
-                <div class="col-xs-12">
-                    @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
-                </div>
-                
-            } else {
-                <h4>Your cart is empty</h4>
-                @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
-            }
+            </div>
+            <div class="col-xs-12">
+                @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
+            </div>
+        }
+        else
+        {
+            <h4>Your cart is empty</h4>
+            @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
         }
     </div>
 </div>

@@ -29,7 +29,7 @@
         @using (Html.BeginForm("AddToCart", "Cart")) {
             <p>
                 <label for="Quantity-@Model.Id">Quantity</label>
-                <input type="number" placeholder="Quantity" name="Quantity" id="Quantity-@Model.Id" value="1" />
+                <input type="number" placeholder="Quantity" name="Quantity" id="Quantity-@Model.Id" value="1" min="1" />
                 <input type="hidden" name="id" value="@Model.Id" />
             </p>
             <p>

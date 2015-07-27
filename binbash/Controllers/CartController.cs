@@ -50,19 +50,17 @@ namespace binbash.Controllers {
             return RedirectToAction("cart");
         }
 
-        // GET: Cart/SetCartQuantity?id=5&quantity=1
-        public ActionResult SetCartQuantity() {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
-            int quantity = Convert.ToInt32(Request.QueryString["quantity"]);
+        // POST: Cart/SetQuantity
+        public ActionResult SetCartQuantity(int id, int quantity) {
 
             CartService.SetItemQuanity(id, quantity);
 
             return RedirectToAction("cart");
         }
 
-        // GET: Cart/RemoveFromCart?id=5
-        public ActionResult RemoveFromCart() {
-            int id = Convert.ToInt32(Request.QueryString["id"]);
+        // POST: Cart/Remove
+        [HttpPost]
+        public ActionResult RemoveFromCart(int id) {
 
             CartService.RemoveItem(id);
 
