@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using binbash.Filters;
+using binbash.Models;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using binbash.Models;
-using System.IO;
 
 namespace binbash.Controllers {
+
     public class ProductsController : Controller {
         private BinBashModels db = new BinBashModels();
 
@@ -34,15 +33,17 @@ namespace binbash.Controllers {
         }
 
         // GET: Products/Create
+        [ValidateIsAdmin]
         public ActionResult Create() {
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
             return View();
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateIsAdmin]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,CategoryId")] Product product) {
             if(ModelState.IsValid) {
@@ -56,6 +57,7 @@ namespace binbash.Controllers {
         }
 
         // GET: Products/Edit/5
+        [ValidateIsAdmin]
         public ActionResult Edit(int? id) {
             if(id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -69,13 +71,13 @@ namespace binbash.Controllers {
         }
 
         // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateIsAdmin]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,CategoryId,ImageURL")] Product product) {
             if(ModelState.IsValid) {
-
                 Product dbProduct = db.Products.Find(product.Id);
                 dbProduct.Name = product.Name;
                 dbProduct.Description = product.Description;
@@ -91,6 +93,7 @@ namespace binbash.Controllers {
         }
 
         // GET: Products/Delete/5
+        [ValidateIsAdmin]
         public ActionResult Delete(int? id) {
             if(id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -102,10 +105,21 @@ namespace binbash.Controllers {
             return View(product);
         }
 
+        // POST: Products/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateIsAdmin]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id) {
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // POST: Product/UploadImage/5
         [HttpPost]
+        [ValidateIsAdmin]
         public ActionResult UploadImage(int? id, HttpPostedFileBase ProductImage) {
-
             if(id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             } else if(ProductImage == null) {
@@ -127,16 +141,6 @@ namespace binbash.Controllers {
 
             db.SaveChanges();
 
-            return RedirectToAction("Index");
-        }
-
-        // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id) {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

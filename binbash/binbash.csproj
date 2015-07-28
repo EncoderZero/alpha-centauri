@@ -167,6 +167,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Filters\ValidateIsAdmin.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,7 +177,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\HttpForbiddenResult.cs" />
     <Compile Include="Services\CartService.cs" />
+    <Compile Include="Services\AuthService.cs" />
     <Compile Include="Wrappers\SessionWrapper.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -321,7 +324,9 @@
     <Content Include="Content\Images\ninja_sketch.jpg" />
     <Content Include="Content\Styles\contact.css" />
     <Content Include="Content\Styles\Landing.css" />
-    <Content Include="favicon.ico" />
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

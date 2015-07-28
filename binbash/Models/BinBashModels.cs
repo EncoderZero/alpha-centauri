@@ -1,19 +1,20 @@
 namespace binbash.Models {
+
     using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    using System.Web;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity;
 
     public partial class BinBashModels : DbContext {
+
         public BinBashModels()
             : base("name=DefaultConnection") {
         }
+
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Category>()
@@ -27,6 +28,7 @@ namespace binbash.Models {
     }
 
     public partial class Category {
+
         public Category() {
             Products = new HashSet<Product>();
         }
@@ -45,6 +47,7 @@ namespace binbash.Models {
     }
 
     public partial class Product {
+
         public Product() {
         }
 
@@ -69,14 +72,17 @@ namespace binbash.Models {
         [NotMapped]
         public int Quantity { get; set; }
     }
-    public partial class User {
-        public int Id { get; set; }
+
+    public partial class AspNetUser {
+        public string Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         public string Email { get; set; }
+
+        public Boolean IsAdmin { get; private set; }
     }
 
     public partial class CartItem {

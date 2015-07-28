@@ -23,6 +23,19 @@ namespace binbash {
             );
 
             routes.MapRoute(
+               name: "RemoveFromCart",
+               url: "cart/remove",
+               defaults: new { controller = "Cart", action = "RemoveFromCart" }
+            );
+
+            routes.MapRoute(
+               name: "SetCartQuantity",
+               url: "cart/setQuantity",
+               defaults: new { controller = "Cart", action = "SetCartQuantity" }
+            );
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
