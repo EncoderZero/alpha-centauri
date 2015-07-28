@@ -114,13 +114,6 @@ pre {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
 .product-card {
     position: relative;
     margin: 10px;
@@ -186,4 +179,17 @@ textarea {
 
 .credit-cardIcon {
     max-width:100px;
+}
+
+img.login-logo {
+    padding: 35px;
+    padding-bottom: 50px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }
