@@ -192,3 +192,8 @@ img.login-logo {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
