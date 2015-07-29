@@ -134,6 +134,10 @@ pre {
     height:350px;
 }
 
+.product-img img {
+    max-height:350px;
+}
+
 .product-detail-img {
     max-width:340px;
 }
