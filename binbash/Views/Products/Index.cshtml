@@ -18,8 +18,7 @@
                     <hr />
 
                     <ul class="no-list">
-                        @foreach (var product in category.Products)
-                        {
+                        @foreach(var product in category.Products) {
                             <li class="text-center product-list col-sm-6 col-lg-4">
                                 <div class="mdc-text-grey-900 panel panel-default product-card">
                                     <div class="panel-body">
@@ -30,21 +29,19 @@
                                                 </h3>
                                             </div>
                                             <div class="col-xs-12 product-img">
-                                                @if (product.ImageURL == null)
-                                                {
-                                                    <img src="~/Content/Images/logo-black.png" class="img-responsive" />
-                                                }
-                                                else
-                                                {
-                                                    <img src="@product.ImageURL" class="img-responsive" />
-                                                }
-
+                                                <a href="@Url.Action("Details", "Products", new { id = product.Id })">
+                                                    @if(product.ImageURL == null) {
+                                                        <img src="~/Content/Images/logo-black.png" class="img-responsive" />
+                                                    } else {
+                                                        <img src="@product.ImageURL" class="img-responsive" />
+                                                    }
+                                                </a>
                                             </div>
                                             <div class="col-xs-12">
-                                                @Html.ActionLink("Details","Details", new { id = product.Id }, new { @class = "btn btn-primary btn-block details-btn" })
+                                                @Html.ActionLink("Details", "Details", "Products", new { id = product.Id }, new { @class = "btn btn-primary btn-block details-btn" })
                                             </div>
-                                            @using (Html.BeginForm("AddToCart", "Cart")) {
-                                                <input type="hidden" name="id" value="@product.Id"/>
+                                            @using(Html.BeginForm("AddToCart", "Cart")) {
+                                                <input type="hidden" name="id" value="@product.Id" />
 
                                                 <div class="col-sm-6">
                                                     <div class="input-group product-quantity">
