@@ -128,22 +128,12 @@ pre {
 }
 
 .product-img {
+    display:flex;
+    justify-content:center;
+    align-items:center;
     height:350px;
 }
-.product-img img {
-    margin: auto;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    position: relative;
-    top: 50%;
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
+
 .product-detail-img {
     max-width:340px;
 }
