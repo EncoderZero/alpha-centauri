@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace binbash.Controllers {
 
     public class ProductsController : Controller {
-        private BinBashModels db = new BinBashModels();
+        private BinBashModelsContext db = new BinBashModelsContext();
 
         private const string PRODUCT_IMAGE_FOLDER_PATH = "/Content/Images/Products/";
 

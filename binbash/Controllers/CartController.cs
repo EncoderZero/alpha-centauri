@@ -12,7 +12,7 @@ namespace binbash.Controllers {
 
         // GET: Cart/Cart
         public ActionResult Cart() {
-            BinBashModels db = new BinBashModels();
+            BinBashModelsContext db = new BinBashModelsContext();
             CartCartViewModel viewModel = new CartCartViewModel();
 
             var Products = db.Products.ToList();

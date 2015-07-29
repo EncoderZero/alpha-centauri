@@ -14,7 +14,7 @@ namespace binbash.Controllers {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        private BinBashModels db = new BinBashModels();
+        private BinBashModelsContext db = new BinBashModelsContext();
 
         public ManageController() {
         }

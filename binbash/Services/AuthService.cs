@@ -4,7 +4,7 @@ using System;
 namespace binbash.Services {
 
     public class AuthService {
-        private static BinBashModels db = new BinBashModels();
+        private static BinBashModelsContext db = new BinBashModelsContext();
 
         public static Boolean UserIsAdmin(AspNetUser user) {
             return user.IsAdmin;

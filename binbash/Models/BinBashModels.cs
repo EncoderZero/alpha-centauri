@@ -6,10 +6,10 @@ namespace binbash.Models {
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
 
-    public partial class BinBashModels : DbContext {
+    public partial class BinBashModelsContext : DbContext {
 
-        public BinBashModels()
-            : base("name=DefaultConnection") {
+        public BinBashModelsContext()
+            : base("name=BinBashModelsConnection") {
         }
 
         public virtual DbSet<Category> Categories { get; set; }
