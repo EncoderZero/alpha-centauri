@@ -197,3 +197,50 @@ img.login-logo {
     float: none;
     margin: 0 auto;
 }
+
+.cart-totals {
+    font-size: 20px;
+}
+
+.dl-horizontal.cart-totals dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dl-horizontal.cart-totals dd {
+    margin-left: 180px;
+    text-align: right;
+}
+.dl-horizontal.cart-totals dd:before,
+.dl-horizontal.cart-totals dd:after {
+    display: table;
+    content: " ";
+}
+.dl-horizontal.cart-totals dd:after {
+    clear: both;
+}
+.dl-horizontal.cart-totals dd:before,
+.dl-horizontal.cart-totals dd:after {
+    display: table;
+    content: " ";
+}
+.dl-horizontal.cart-totals dd:after {
+    clear: both;
+}
+
+.card {
+  margin-top: 15px;
+}
+
+.cart-item .item-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cart-item .card-body {
+    padding-bottom: 0;
+}

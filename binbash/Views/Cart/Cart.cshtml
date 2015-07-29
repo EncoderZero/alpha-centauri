@@ -3,73 +3,107 @@
     ViewBag.Title = "Shopping Cart";
 }
 
-<div class="card">
-    <div class="card-body">
-        <h2>
-            <small>$ cat /usr/</small>
-            <br />
-            Cart
-        </h2>
+<div class="container-fluid">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="card card-pad mdc-bg-grey-900 mdc-text-grey-50">
+            <div class="card-body">
+                <h2>
+                    <small>$ cat /usr/</small>
+                    <br />
+                    Cart
+                </h2>
 
-        <hr />
-        @if(Model.CartItems.Count() >= 1)
-        {
-            <table class="table col-xs-12">
-                <tr>
-                    <th>Name</th>
-                    <th>Unit Price</th>
-                    <th>Quantity</th>
-                    <th>SubTotal</th>
-                    <th>Remove</th>
-                </tr>
-                
-                    @foreach (var cartItem in Model.CartItems)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => cartItem.Product.Name)
-                            </td>
-                            <td>
-                                <strong>
-                                    @Html.DisplayFor(modelItem => cartItem.Product.Price)
-                                </strong>
-                            </td>
-                            <td>
-                                @using (Html.BeginForm("SetCartQuantity", "Cart"))
-                                {
-                                    <input type="number" min="1" placeholder="Quantity" name="Quantity" id="Quantity-@cartItem.ProductId" value="@cartItem.Quantity" onblur="submit()" />
-                                    <input type="hidden" name="id" value="@cartItem.ProductId" />
-                                }
-                            </td>
-                            <td>
-                                @(cartItem.ItemTotal.ToString("f2"))
-                            </td>
-                            <td>
-                                @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                                {
-                                    <button type="submit" class="btn btn-danger btn-sm" value="Remove">X</button>
-                                    <input type="hidden" name="id" value="@cartItem.ProductId" />
-                                }
-                            </td>
-                        </tr>
-                    }
-            </table>
-            <div class="col-xs-12">
-                <div class="text-right">
-                    <h4>SubTotal: @Model.TotalPrice.ToString("C")</h4>
-                        <h4>Tax: @((Model.TotalPrice * 0.13).ToString("C"))</h4>
-                        <h4>Total: @((Model.TotalPrice * 1.13).ToString("C"))</h4>
-                </div>
+
+                @if(Model.CartItems.Count() >= 1) {
+                    <div class="row">
+                        @foreach(var cartItem in Model.CartItems) {
+                            <div class="col-sm-12">
+                                <div class="card cart-item">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <span class="item-title">@Html.DisplayFor(modelItem => cartItem.Product.Name)</span>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="pull-right">
+                                                    @using(Html.BeginForm("RemoveFromCart", "Cart")) {
+                                                        <input type="hidden" name="id" value="@cartItem.ProductId" />
+                                                        <button type="submit" class="btn btn-danger" value="Remove" style="margin-top: 0">Remove Item</button>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="form-group">
+                                                    @using(Html.BeginForm("SetCartQuantity", "Cart", FormMethod.Post)) {
+                                                        <input type="hidden" name="id" value="@cartItem.ProductId" />
+                                                        <div class="input-group">
+                                                            <label>Quantity</label>
+                                                            <input type="number" min="0" placeholder="Quantity" name="Quantity" id="Quantity-@cartItem.ProductId" value="@cartItem.Quantity" class="form-control" />
+                                                            <div class="input-group-addon">
+                                                                <input type="submit" value="Update" class="btn btn-default btn-group-sm">
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2 col-md-offset-4">
+                                                <div class="form-group">
+                                                    <strong>Unit Price:</strong>
+                                                    <br />
+                                                    <div class="hidden-xs">
+                                                        <span class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price)</span>
+                                                    </div>
+                                                    <div class="hidden-sm hidden-md hidden-lg">
+                                                        <span>@(cartItem.ItemTotal.ToString("C"))</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-2">
+                                                <div class="form-group">
+                                                    <strong>Total Price:</strong>
+                                                    <br />
+                                                    <div class="hidden-xs">
+                                                        <span class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price)</span>
+                                                    </div>
+                                                    <div class="hidden-sm hidden-md hidden-lg">
+                                                        <span class="">@(cartItem.ItemTotal.ToString("C"))</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="pull-right">
+                                <dl class="dl-horizontal cart-totals">
+                                    <dt>SubTotal:</dt>
+                                    <dd>@Model.TotalPrice.ToString("C")</dd>
+                                    <dt>Tax:</dt>
+                                    <dd>@((Model.TotalPrice * 0.13).ToString("C"))</dd>
+                                    <hr />
+                                    <dt>Total:</dt>
+                                    <dd>@((Model.TotalPrice * 1.13).ToString("C"))</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                            @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
+                        </div>
+                    </div>
+                } else {
+                    <h4>Your cart is empty</h4>
+                    @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
+                }
             </div>
-            <div class="col-xs-12">
-                @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
-                @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
-            </div>
-        }
-        else
-        {
-            <h4>Your cart is empty</h4>
-            @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
-        }
+        </div>
     </div>
 </div>

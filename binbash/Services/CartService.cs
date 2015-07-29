@@ -59,8 +59,10 @@ namespace binbash.Services {
         }
 
         public static List<CartItem> SetItemQuanity(int productId, int quantity) {
-            if(quantity <= 0) {
-                throw new ArgumentException("Quantity must be greater then 0");
+            if(quantity < 0) {
+                throw new ArgumentException("Quantity must be greater then or equal to 0");
+            } else if(quantity == 0) {
+                return RemoveItem(productId);
             }
 
             List<CartItem> cart = GetItems();

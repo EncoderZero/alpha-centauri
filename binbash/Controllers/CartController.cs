@@ -52,7 +52,6 @@ namespace binbash.Controllers {
 
         // POST: Cart/SetQuantity
         public ActionResult SetCartQuantity(int id, int quantity) {
-
             CartService.SetItemQuanity(id, quantity);
 
             return RedirectToAction("cart");
