@@ -56,7 +56,7 @@
                                                         <span class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price)</span>
                                                     </div>
                                                     <div class="hidden-sm hidden-md hidden-lg">
-                                                        <span>@(cartItem.ItemTotal.ToString("C"))</span>
+                                                        <span>@Html.DisplayFor(modelItem => cartItem.Product.Price)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@
                                                     <strong>Total Price:</strong>
                                                     <br />
                                                     <div class="hidden-xs">
-                                                        <span class="pull-right">@Html.DisplayFor(modelItem => cartItem.Product.Price)</span>
+                                                        <span class="pull-right">@(cartItem.ItemTotal.ToString("C"))</span>
                                                     </div>
                                                     <div class="hidden-sm hidden-md hidden-lg">
                                                         <span class="">@(cartItem.ItemTotal.ToString("C"))</span>
