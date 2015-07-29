@@ -6,7 +6,7 @@
 }
 
 
-<div class="card">
+<div class="card card-pad mdc-bg-grey-900 mdc-text-grey-50">
     <div class="card-body">
         <h1>
             <small>$ cat /products/@Html.DisplayFor(model => model.Category.Name)/</small><br />
@@ -26,19 +26,22 @@
         <p>
             @Html.DisplayFor(model => model.Description)
         </p>
-        @using (Html.BeginForm("AddToCart", "Cart")) {
-            <p>
+        <div class="mdc-text-grey-50">
+            @using (Html.BeginForm("AddToCart", "Cart"))
+            {
                 <label for="Quantity-@Model.Id">Quantity</label>
                 <input type="number" placeholder="Quantity" name="Quantity" id="Quantity-@Model.Id" value="1" min="1" />
                 <input type="hidden" name="id" value="@Model.Id" />
-            </p>
-            <p>
-                @Html.ActionLink("Back to products", "Index", "Products", new { @class = "btn btn-default" })
-                <button class="btn btn-success pull-right">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                    @Html.DisplayFor(model => model.Price)
-                </button>
-            </p>
-        }
+    <div>
+        <a class="btn btn-fab btn-raised btn-primary" href="@Url.Action("Index", "Products")">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+        <button class="btn btn-success pull-right">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            @Html.DisplayFor(model => model.Price)
+        </button>
+    </div>
+            }
+        </div>
     </div>
 </div>

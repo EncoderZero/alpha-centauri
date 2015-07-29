@@ -28,7 +28,9 @@
                                                 <div class="pull-right">
                                                     @using(Html.BeginForm("RemoveFromCart", "Cart")) {
                                                         <input type="hidden" name="id" value="@cartItem.ProductId" />
-                                                        <button type="submit" class="btn btn-danger" value="Remove" style="margin-top: 0">Remove Item</button>
+                                                        <button class="btn btn-raised btn-danger small-fab" value="Remove" style="margin-top: 0">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
                                                     }
                                                 </div>
                                             </div>
@@ -95,13 +97,17 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            @Html.ActionLink("Continue Shopping", "Index", "Products", null, new { @class = "btn btn-default" })
+                            <a class="btn btn-fab btn-raised btn-primary" href="@Url.Action("Index", "Products")">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
                             @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-primary pull-right" })
                         </div>
                     </div>
                 } else {
                     <h4>Your cart is empty</h4>
-                    @Html.ActionLink("Back to products", "Index", "Products", null, new { @class = "btn btn-default" })
+                    <a class="btn btn-fab btn-raised btn-primary" href="@Url.Action("Index", "Products")">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
                 }
             </div>
         </div>
