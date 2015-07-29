@@ -58,6 +58,10 @@ pre {
     border: none;
 }
 
+.card {
+  margin-top: 15px;
+}
+
 .card-pad {
     margin-top: 60px;
 }
@@ -232,9 +236,7 @@ img.login-logo {
     clear: both;
 }
 
-.card {
-  margin-top: 15px;
-}
+
 
 .cart-item .item-title {
     font-size: 20px;
